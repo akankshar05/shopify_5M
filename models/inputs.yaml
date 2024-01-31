@@ -14,7 +14,7 @@ inputs:
         - name: anonymous_id
         - name: email
     app_defaults:
-      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.IDENTIFIES
+      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_IDENTIFIES_5M
       occurred_at_col: timestamp
       ids:
         - select: "user_id"
@@ -40,7 +40,7 @@ inputs:
         - name: user_id
         - name: anonymous_id
     app_defaults:
-      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.TRACKS
+      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_TRACKS_5M
       occurred_at_col: timestamp
       ids:
         - select: "user_id"
@@ -65,7 +65,7 @@ inputs:
         - name: anonymous_id
         - name: context_session_id
     app_defaults:
-      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.PAGES
+      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_PAGES_5M
       occurred_at_col: timestamp
       ids:
         - select: "user_id"
@@ -94,7 +94,7 @@ inputs:
         - name: user_id
         - name: anonymous_id
     app_defaults:
-      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.ORDER_CREATED
+      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_ORDER_CREATED_5M
       occurred_at_col: timestamp
       ids:
         - select: "user_id"
@@ -117,7 +117,7 @@ inputs:
         - name: user_id
         - name: anonymous_id
     app_defaults:
-      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.ORDER_CANCELLED
+      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_ORDER_CANCELLED_5M
       occurred_at_col: timestamp
       ids:
         - select: "user_id"
@@ -139,7 +139,7 @@ inputs:
         - name: timestamp
         - name: anonymous_id
     app_defaults:
-      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.CART_UPDATE
+      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_CART_UPDATE_5M
       occurred_at_col: timestamp
       ids:
         - select: "anonymous_id"
@@ -159,7 +159,7 @@ inputs:
         - name: user_id
         - name: anonymous_id
     app_defaults:
-      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.ORDER_UPDATED
+      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_ORDER_UPDATED_5M
       occurred_at_col: timestamp
       ids:
         - select: "user_id"
