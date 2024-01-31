@@ -1,121 +1,170 @@
 inputs:
   - name: rsIdentifies
-    app_defaults:
-      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_IDENTIFIES_5M
-    occurred_at_col: timestamp
-    ids:
-      - select: "user_id"
-        type: user_id
-        entity: user
-        to_default_stitcher: true
-      - select: "anonymous_id"
-        type: anonymous_id
-        entity: user
-        to_default_stitcher: true
-      - select: "lower(email)"
-        type: email
-        entity: user
-        to_default_stitcher: true
     source_metadata:
       role: shopify
       category: webhook
+    contract:
+      is_optional: false
+      is_event_stream: true
+      with_entity_ids:
+        - user
+      with_columns:
+        - name: timestamp
+        - name: user_id
+        - name: anonymous_id
+        - name: email
+    app_defaults:
+      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.IDENTIFIES
+      occurred_at_col: timestamp
+      ids:
+        - select: "user_id"
+          type: user_id
+          entity: user
+        - select: "anonymous_id"
+          type: anonymous_id
+          entity: user
+        - select: "lower(email)"
+          type: email
+          entity: user
   - name: rsTracks
-    app_defaults:
-      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_TRACKS_5M
-    occurred_at_col: timestamp
-    ids:
-      - select: "user_id"
-        type: user_id
-        entity: user
-        to_default_stitcher: true
-      - select: "anonymous_id"
-        type: anonymous_id
-        entity: user
-        to_default_stitcher: true
     source_metadata:
       role: shopify
       category: webhook
+    contract:
+      is_optional: false
+      is_event_stream: true
+      with_entity_ids:
+        - user
+      with_columns:
+        - name: timestamp
+        - name: user_id
+        - name: anonymous_id
+    app_defaults:
+      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.TRACKS
+      occurred_at_col: timestamp
+      ids:
+        - select: "user_id"
+          type: user_id
+          entity: user
+        - select: "anonymous_id"
+          type: anonymous_id
+          entity: user
   - name: rsPages
-    app_defaults:
-      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_PAGES_5M
-    occurred_at_col: timestamp
-    ids:
-      - select: "user_id"
-        type: user_id
-        entity: user
-        to_default_stitcher: true
-      - select: "anonymous_id"
-        type: anonymous_id
-        entity: user
-        to_default_stitcher: true
-      - select: "concat(coalesce(anonymous_id, 'null'), coalesce(to_char(context_session_id), 'null'))"
-        type: session_id
-        entity: user
-        to_default_stitcher: true
-      - select: "concat(coalesce(anonymous_id, 'null'), coalesce(to_char(context_session_id), 'null'))"
-        type: session_id
-        entity: session
-        to_default_stitcher: true
     source_metadata:
       role: shopify
       category: webhook
+    contract:
+      is_optional: false
+      is_event_stream: true
+      with_entity_ids:
+        - user
+        - session
+      with_columns:
+        - name: timestamp
+        - name: user_id
+        - name: anonymous_id
+        - name: context_session_id
+    app_defaults:
+      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.PAGES
+      occurred_at_col: timestamp
+      ids:
+        - select: "user_id"
+          type: user_id
+          entity: user
+        - select: "anonymous_id"
+          type: anonymous_id
+          entity: user
+        - select: "concat(coalesce(anonymous_id, 'null'), coalesce(to_char(context_session_id), 'null'))"
+          type: session_id
+          entity: user
+        - select: "concat(coalesce(anonymous_id, 'null'), coalesce(to_char(context_session_id), 'null'))"
+          type: session_id
+          entity: session
   - name: rsOrderCreated
-    app_defaults:
-      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_ORDER_CREATED_5M
-    occurred_at_col: timestamp
-    ids:
-      - select: "user_id"
-        type: user_id
-        entity: user
-        to_default_stitcher: true
-      - select: "anonymous_id"
-        type: anonymous_id
-        entity: user
-        to_default_stitcher: true
     source_metadata:
       role: shopify
       category: webhook
+    contract:
+      is_optional: false
+      is_event_stream: true
+      with_entity_ids:
+        - user
+      with_columns:
+        - name: timestamp
+        - name: user_id
+        - name: anonymous_id
+    app_defaults:
+      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.ORDER_CREATED
+      occurred_at_col: timestamp
+      ids:
+        - select: "user_id"
+          type: user_id
+          entity: user
+        - select: "anonymous_id"
+          type: anonymous_id
+          entity: user
   - name: rsOrderCancelled
-    app_defaults:
-      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_ORDER_CANCELLED_5M
-    occurred_at_col: timestamp
-    ids:
-      - select: "user_id"
-        type: user_id
-        entity: user
-        to_default_stitcher: true
-      - select: "anonymous_id"
-        type: anonymous_id
-        entity: user
-        to_default_stitcher: true
     source_metadata:
       role: shopify
       category: webhook
+    contract:
+      is_optional: false
+      is_event_stream: true
+      with_entity_ids:
+        - user
+      with_columns:
+        - name: timestamp
+        - name: user_id
+        - name: anonymous_id
+    app_defaults:
+      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.ORDER_CANCELLED
+      occurred_at_col: timestamp
+      ids:
+        - select: "user_id"
+          type: user_id
+          entity: user
+        - select: "anonymous_id"
+          type: anonymous_id
+          entity: user
   - name: rsCartUpdate
-    app_defaults:
-      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_CART_UPDATE_5M
-    occurred_at_col: timestamp
-    ids:
-      - select: "anonymous_id"
-        type: anonymous_id
-        entity: user
-        to_default_stitcher: true
     source_metadata:
       role: shopify
       category: webhook
+    contract:
+      is_optional: false
+      is_event_stream: true
+      with_entity_ids:
+        - user
+      with_columns:
+        - name: timestamp
+        - name: anonymous_id
+    app_defaults:
+      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.CART_UPDATE
+      occurred_at_col: timestamp
+      ids:
+        - select: "anonymous_id"
+          type: anonymous_id
+          entity: user
   - name: rsOrderUpdated
-    app_defaults:
-      table: RUDDERSTACK_TEST_DB.SHOPIFY_SIMULATED_DATA.TEST_ORDER_UPDATED_5M
-    occurred_at_col: timestamp
-    ids:
-      - select: "user_id"
-        type: user_id
-        entity: user
-        to_default_stitcher: true
-      - select: "anonymous_id"
-        type: anonymous_id
-        entity: user
-        to_default_stitcher: true
     source_metadata:
       role: shopify
       category: webhook
+    contract:
+      is_optional: false
+      is_event_stream: true
+      with_entity_ids:
+        - user
+      with_columns:
+        - name: timestamp
+        - name: user_id
+        - name: anonymous_id
+    app_defaults:
+      table: RUDDERSTACK_TEST_DB.DATA_APPS_SIMULATED_SHOPIFY.ORDER_UPDATED
+      occurred_at_col: timestamp
+      ids:
+        - select: "user_id"
+          type: user_id
+          entity: user
+        - select: "anonymous_id"
+          type: anonymous_id
+          entity: user
